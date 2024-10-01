@@ -4,9 +4,12 @@ interface EmailTemplateProps {
 	firstName: string;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ firstName }) => (
+export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ firstName, lastName, phoneNumber }) => (
 	<div>
-		<h1>Welcome, {firstName}!</h1>
+		<h1>Dolce Gabanna contact!</h1>
+		<span>Firstname: {firstName}</span>
+		<span>Lastname: {lastName}</span>
+		<span>Phone number: {phoneNumber}</span>
 	</div>
 );
 

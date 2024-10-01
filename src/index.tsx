@@ -3,13 +3,15 @@ import { EmailTemplate } from './emails/email-template';
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		const resend = new Resend('re_123456789'/* env.RESEND_API_KEY */);
+		const resend = new Resend('re_R5zCxn2E_NfkyuvzRNtiLBv6n15MKYBvK' /* env.RESEND_API_KEY */);
+
+		const { firstName, lastName, phoneNumber } = request.body;
 
 		const data = await resend.emails.send({
-			from: 'Acme <onboarding@resend.dev>',
-			to: ['delivered@resend.dev'],
-			subject: 'hello world',
-			react: <EmailTemplate firstName="John" />,
+			from: 'onboarding@resend.dev',
+			to: 'sales@sierrablancaestates.com',
+			subject: 'Dolce Gabanna contact!',
+			react: <EmailTemplate firstName={firstName} lastName={lastName} phoneNumber={phoneNumber} />,
 		});
 
 		return new Response(JSON.stringify(data), {
