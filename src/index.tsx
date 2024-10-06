@@ -3,13 +3,13 @@ import { EmailTemplate } from './emails/email-template';
 
 export default {
 	async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-		const resend = new Resend('re_FvZbuc2B_7dRwM2UzDZR7x6Z2xsTVH2HL' /* env.RESEND_API_KEY */);
+		const resend = new Resend('re_R5zCxn2E_NfkyuvzRNtiLBv6n15MKYBvK' /* env.RESEND_API_KEY */);
 
 		const url = new URL(request.url);
 
 		const data = await resend.emails.send({
 			from: 'onboarding@resend.dev',
-			to: 'xavier@galdeano.io',
+			to: 'sales@sierrablancaestates.com',
 			subject: 'Dolce Gabanna contact!',
 			react: (
 				<EmailTemplate
