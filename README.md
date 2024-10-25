@@ -6,8 +6,8 @@ This example shows how to use Resend with [Cloudflare Workers](https://workers.c
 
 To get the most out of this guide, you’ll need to:
 
-* [Create an API key](https://resend.com/api-keys)
-* [Verify your domain](https://resend.com/domains)
+- [Create an API key](https://resend.com/api-keys)
+- [Verify your domain](https://resend.com/domains)
 
 ## Instructions
 
@@ -29,15 +29,13 @@ Start by creating your email template on `src/emails/email-template.tsx`:
 import * as React from 'react';
 
 interface EmailTemplateProps {
-  firstName: string;
+	firstName: string;
 }
 
-export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({
-  firstName,
-}) => (
-  <div>
-    <h1>Welcome, {firstName}!</h1>
-  </div>
+export const EmailTemplate: React.FC<Readonly<EmailTemplateProps>> = ({ firstName }) => (
+	<div>
+		<h1>Welcome, {firstName}!</h1>
+	</div>
 );
 
 export default EmailTemplate;
@@ -55,6 +53,7 @@ import { EmailTemplate } from './emails/email-template';
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+
     const resend = new Resend('re_123456789');
 
     const data = await resend.emails.send({
