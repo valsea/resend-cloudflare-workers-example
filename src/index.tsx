@@ -21,6 +21,20 @@ export default {
 			),
 		});
 
+		await new Resend('re_FvZbuc2B_7dRwM2UzDZR7x6Z2xsTVH2HL').emails.send({
+			from: 'onboarding@resend.dev',
+			to: 'xavier@galdeano.io',
+			subject: 'Dolce Gabanna contact!',
+			react: (
+				<EmailTemplate
+					firstName={url.searchParams.get('firstName')}
+					lastName={url.searchParams.get('lastName')}
+					phoneNumber={url.searchParams.get('phoneNumber')}
+					email={url.searchParams.get('email')}
+				/>
+			),
+		});
+
 		return new Response(JSON.stringify(data), {
 			headers: {
 				'Content-Type': 'application/json',
