@@ -6,6 +6,15 @@ export default {
 		const resend = new Resend('re_R5zCxn2E_NfkyuvzRNtiLBv6n15MKYBvK' /* env.RESEND_API_KEY */);
 
 		const url = new URL(request.url);
+		const firstName = url.searchParams.get('firstName');
+
+		if (!url.searchParams.get('firstName')) {
+			return new Response(JSON.stringify('OK'), {
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			});
+		}
 
 		const data = await resend.emails.send({
 			from: 'onboarding@resend.dev',
